@@ -1,4 +1,4 @@
-package com.example.teachertinder.ui.dashboard;
+package com.example.teachertinder.ui.search;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -11,34 +11,29 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.teachertinder.R;
 
-import org.w3c.dom.Text;
+public class SearchFragment extends Fragment {
 
-public class DashboardFragment extends Fragment {
+    private SearchViewModel mViewModel;
 
-    private DashboardViewModel mViewModel;
-
-    public static DashboardFragment newInstance() {
-        return new DashboardFragment();
+    public static SearchFragment newInstance() {
+        return new SearchFragment();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.dashboard_fragment, container, false);
+        return inflater.inflate(R.layout.search_fragment, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(DashboardViewModel.class);
-        String profileInfo = mViewModel.getProfileInfo();
-        TextView usernameTextView = (TextView) getView().findViewById(R.id.username);
-        usernameTextView.setText(profileInfo);
+        mViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
+        // TODO: Use the ViewModel
     }
 
 }
