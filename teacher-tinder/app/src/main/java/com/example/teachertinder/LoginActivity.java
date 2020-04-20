@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 
+/** Activity to login. **/
 public class LoginActivity extends AppCompatActivity {
 
     private EditText Name;

@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.teachertinder.ui.dashboard.DashboardFragment;
 
+/** Activity to show user dashboard. **/
 public class DashboardActivity extends AppCompatActivity {
 
     @Override

@@ -17,6 +17,7 @@ import com.example.teachertinder.R;
 
 import org.w3c.dom.Text;
 
+/** Fragment to show user dashboard. **/
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel mViewModel;

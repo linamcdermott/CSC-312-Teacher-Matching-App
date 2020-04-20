@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.teachertinder.ui.search.SearchFragment;
 
+/** Activity to display search and search results. **/
 public class SearchActivity extends AppCompatActivity {
 
     @Override
