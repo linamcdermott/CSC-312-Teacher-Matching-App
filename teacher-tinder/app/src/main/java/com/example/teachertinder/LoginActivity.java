@@ -1,11 +1,10 @@
-package com.example.teacher_tinder_login_v2;
+package com.example.teachertinder;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         // Creating the objects and linking them to their corresponding
         // screen elements
@@ -55,10 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         ClickableSpan clickableSpan1 = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-
-                // need to change the SecondActivity to a registering screen
-                //Toast.makeText(MainActivity.this, "Signup",Toast.LENGTH_SHORT);
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         };
@@ -74,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
         Parameters: userName, userPassword
         Returns: nothing
     */
-
     private void validate(String userName, String userPassword){
 
         // I. find the userName in the Database
@@ -92,13 +86,11 @@ public class LoginActivity extends AppCompatActivity {
         // This is an example of a simple implementation for a successful scenario
 
         if ((userName.equals("Admin") ) && (userPassword.equals("1234"))){
-            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
 
-        }else{
+        } else{
             counter--;
-
-
 
             Info.setText(getString(R.string.blank, counter));
             if (counter == 0){
