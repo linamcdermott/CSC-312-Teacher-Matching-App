@@ -14,11 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final Context context = getApplicationContext();
 
         final Button dashboardButton = findViewById(R.id.dashboard_button);
         dashboardButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Context context = getApplicationContext();
                 Intent intent = new Intent(context, DashboardActivity.class);
                 startActivity(intent);
             }
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         final Button searchButton = findViewById(R.id.search_button);
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Context context = getApplicationContext();
                 Intent intent = new Intent(context, SearchActivity.class);
                 startActivity(intent);
             }
