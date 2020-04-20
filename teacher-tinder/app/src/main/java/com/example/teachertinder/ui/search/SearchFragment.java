@@ -34,6 +34,9 @@ public class SearchFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         // TODO: Use the ViewModel
+        String jobInfo = mViewModel.getJobInfo();
+        TextView jobTextView = (TextView) getView().findViewById(R.id.job);
+        jobTextView.setText(jobInfo);
     }
 
 }
