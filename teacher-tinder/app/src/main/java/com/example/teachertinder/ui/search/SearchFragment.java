@@ -38,5 +38,4 @@ public class SearchFragment extends Fragment {
         TextView jobTextView = (TextView) getView().findViewById(R.id.job);
         jobTextView.setText(jobInfo);
     }
-
 }
