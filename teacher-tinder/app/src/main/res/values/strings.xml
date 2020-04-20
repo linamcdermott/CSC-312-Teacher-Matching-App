@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Teacher Tinder</string>
+    <string name="blank">No of attempts remaining: %d </string>
 </resources>
