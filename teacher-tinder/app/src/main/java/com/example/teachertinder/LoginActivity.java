@@ -71,21 +71,7 @@ public class LoginActivity extends AppCompatActivity {
         Returns: nothing
     */
     private void validate(String userName, String userPassword){
-
-        // I. find the userName in the Database
-        // 1. if username found
-        // a. Get the password
-        // b. Check if the password matches userPassword
-        // c. if password is correct
-        // i. move to the next activity / Screen
-        // d. if password is NOT correct
-        // i. decrement the counter
-
-        // 2. if username not found
-        // a. return an error that the user name enter is wrong
-
-        // This is an example of a simple implementation for a successful scenario
-
+        // TODO: implement authentication with database
         if ((userName.equals("Admin") ) && (userPassword.equals("1234"))){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
@@ -101,3 +87,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
+
