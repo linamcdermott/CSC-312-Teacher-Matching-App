@@ -2,7 +2,6 @@ package com.example.teachertinder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +18,7 @@ public class EditActivity extends AppCompatActivity{
     private EditText certificatesEditText;
     private EditText bioEditText;
 
+    /** This method is run when the Activity is opened in the app. */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,8 @@ public class EditActivity extends AppCompatActivity{
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // TODO: implement saving account info to database
-                Toast.makeText(getApplicationContext(), "Account information saved", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Account information saved",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }
