@@ -59,31 +59,31 @@ public class SearchFragment extends Fragment {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
         mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNames.add("SnowyArea");
+        mNames.add("School 1");
 
         mImageUrls.add("https://i.redd.it/y4obra59imv41.jpg");
-        mNames.add("GrandCanyon");
+        mNames.add("School 2");
 
         mImageUrls.add("https://i.redd.it/sltavh1wumv41.jpg");
-        mNames.add("SierraSkys");
+        mNames.add("School 3");
 
         mImageUrls.add("https://i.redd.it/t2xy63875kv41.jpg");
-        mNames.add("NetherlandsBeach");
+        mNames.add("School 4");
 
         mImageUrls.add("https://i.redd.it/z74mauwfskv41.jpg");
-        mNames.add("SecedaHills");
+        mNames.add("School 5");
 
         mImageUrls.add("https://i.redd.it/hu927ravplv41.jpg");
-        mNames.add("GullfossWaterfall");
+        mNames.add("School 6");
 
         mImageUrls.add("https://i.redd.it/ng6sr1zualv41.jpg");
-        mNames.add("BrazilSky");
+        mNames.add("School 7");
 
         mImageUrls.add("https://i.redd.it/7aftvdrx8ov41.jpg");
-        mNames.add("PacificBeach");
+        mNames.add("School 8");
 
         mImageUrls.add("https://i.redd.it/vgqlg9j8sjv41.jpg");
-        mNames.add("Jyrgalan");
+        mNames.add("School 9");
 
         initRecyclerView();
     }
