@@ -1,20 +1,23 @@
 package com.example.teachertinder;
 
-        import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-        import android.os.Bundle;
-        import android.widget.Button;
-        import android.widget.EditText;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/** Activity to edit Users Profile. **/
+/** Activity to edit a user's profile. **/
 public class EditActivity extends AppCompatActivity{
 
-    private EditText Experience;
-    private EditText Subjects;
-    private EditText Region;
-    private EditText Certificates;
-    private EditText Bio;
-    private Button Save;
+    // These will eventually be used.
+    private EditText experienceEditText;
+    private EditText subjectsEditText;
+    private EditText regionEditText;
+    private EditText certificatesEditText;
+    private EditText bioEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +25,19 @@ public class EditActivity extends AppCompatActivity{
         setContentView(R.layout.edit_account_activity);
         // Creating the objects and linking them to their corresponding
         // screen elements
+        experienceEditText = (EditText)findViewById(R.id.tvExperience);
+        subjectsEditText = (EditText)findViewById(R.id.tvSubjectsTaught);
+        regionEditText = (EditText) findViewById(R.id.tvRegion);
+        certificatesEditText = (EditText) findViewById(R.id.tvCertficates);
+        bioEditText = (EditText) findViewById(R.id.tvBio);
 
-        Experience = (EditText)findViewById(R.id.tvExperience);
-        Subjects = (EditText)findViewById(R.id.tvSubjectsTaught);
-        Region = (EditText) findViewById(R.id.tvRegion);
-        Certificates = (EditText) findViewById(R.id.tvCertficates);
-        Bio = (EditText) findViewById(R.id.tvBio);
-
-        Save = (Button) findViewById(R.id.btSave);
+        final Button saveButton = findViewById(R.id.btSave);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO: implement saving account info to database
+                Toast.makeText(getApplicationContext(), "Account information saved", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
 }

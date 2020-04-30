@@ -31,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        final Button editAccountButton = findViewById(R.id.edit_button);
+        editAccountButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EditActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
