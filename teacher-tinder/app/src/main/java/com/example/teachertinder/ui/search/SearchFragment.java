@@ -2,6 +2,7 @@ package com.example.teachertinder.ui.search;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.teachertinder.R;
 import com.example.teachertinder.RecyclerViewAdapter;
@@ -48,8 +51,11 @@ public class SearchFragment extends Fragment {
         String jobInfo = mViewModel.getJobInfo();
         // TODO: use ViewModel to populate search
         final Button searchButton = getView().findViewById(R.id.search_btn);
+        final EditText editText = getView().findViewById(R.id.search_box);
         searchButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                InputMethodManager mgr = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                mgr.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                 initImageBitmaps();
             }
         });

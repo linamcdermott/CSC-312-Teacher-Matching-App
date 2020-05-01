@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/** Connects application to database. */
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "TeacherTinder.db";
     public static final String TABLE_NAME1 = "teachers";
@@ -26,19 +27,29 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_34 = "DESCRIPTION";
     public static final String COL_35 = "SALARY";
 
+    // TODO: Implement error handling in all methods.
 
-    public static final String TABLE_NAME_2 = "schools";
-
+    /** Constructor method. */
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
+
+    /** Method that is run when the database is created. */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME1 +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SURNAME TEXT,USER TEXT, PASSWORD TEXT, EXPERIENCE INTEGER, SUBJTAUGHT TEXT, PREFERREDREGION TEXT, CERTIFICATES TEXT, BIO TEXT)");
-        db.execSQL("create table " + TABLE_NAME2 +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,USER TEXT,PASSWORD TEXT, ADDRESS TEXT, JOBSAVAILABLE TEXT)");
-        db.execSQL("create table " + TABLE_NAME3 +" (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,POSITION TEXT,DESCRIPTION TEXT, SALARY INTEGER)");
+        db.execSQL("create table " + TABLE_NAME1 +" (" +
+                "ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SURNAME TEXT,USER TEXT, " +
+                "PASSWORD TEXT, EXPERIENCE INTEGER, SUBJTAUGHT TEXT, PREFERREDREGION TEXT, " +
+                "CERTIFICATES TEXT, BIO TEXT)");
+        db.execSQL("create table " + TABLE_NAME2 +" (" +
+                "ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,USER TEXT,PASSWORD TEXT, " +
+                "ADDRESS TEXT, JOBSAVAILABLE TEXT)");
+        db.execSQL("create table " + TABLE_NAME3 +" (" +
+                "ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,POSITION TEXT,DESCRIPTION TEXT, " +
+                "SALARY INTEGER)");
     }
 
+    /** Method that is run when database is updated. */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME1);
@@ -47,7 +58,10 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertTeacherData(String name,String surname,String user,String password, String exp, String subj, String preferred, String cert, String bio) {
+    /** Insert a new teacher. */
+    public boolean insertTeacherData(String name,String surname,String user,String password,
+                                     String exp, String subj, String preferred, String cert,
+                                     String bio) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_12,name);
@@ -65,14 +79,17 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-    public boolean updateTeacherData(String id, String name,String surname,String user,String password, String exp, String subj, String preferred, String cert, String bio) {
+
+    /** Update an existing teacher. */
+    public boolean updateTeacherData(String id, String exp, String subj, String preferred,
+                                     String cert, String bio) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_11,id);
-        contentValues.put(COL_12,name);
-        contentValues.put(COL_13,surname);
-        contentValues.put(COL_14,user);
-        contentValues.put(COL_15,password);
+        // TODO: Add fields for name, surname, user, password
+        //contentValues.put(COL_12,name);
+        //contentValues.put(COL_13,surname);
+        //contentValues.put(COL_14,user);
+        //contentValues.put(COL_15,password);
         contentValues.put(COL_16,exp);
         contentValues.put(COL_17,subj);
         contentValues.put(COL_18,preferred);
@@ -82,11 +99,15 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    /** Delete a teacher. */
     public Integer deleteTeacherData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME1, "ID = ?",new String[] {id});
     }
-    public boolean insertSchoolData(String name,String user,String password, String address, Integer jobsAvailable) {
+
+    /** Insert a new school. */
+    public boolean insertSchoolData(String name,String user,String password, String address,
+                                    Integer jobsAvailable) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_12,name);
@@ -100,7 +121,10 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-    public boolean updateTeacherData(String id, String name, String user,String password, String address, Integer jobsAvailable) {
+
+    /** Update an existing school. */
+    public boolean updateSchoolData(String id, String name, String user,String password,
+                                    String address, Integer jobsAvailable) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_11,id);
@@ -113,10 +137,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    /** Delete an existing school. */
     public Integer deleteSchoolData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME2, "ID = ?",new String[] {id});
     }
+
+    /** Insert a new job. */
     public boolean insertJobData(String name,String position,String description, Integer salary) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -130,7 +157,10 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-    public boolean updateJobData(String id, String name,String position,String description, Integer salary) {
+
+    /** Update an existing job. */
+    public boolean updateJobData(String id, String name,String position,String description,
+                                 Integer salary) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_11,id);
@@ -143,6 +173,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    /** Delete an existing job. */
     public Integer deleteJobData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME3, "ID = ?",new String[] {id});
