@@ -30,13 +30,15 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class SearchFragment extends Fragment {
 
     private SearchViewModel mViewModel;
-    private ArrayList<String> mNames = new ArrayList<>();
-    private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ArrayList<String> mNames = new ArrayList<>(); // TODO: fix and implement database connection.
+    private ArrayList<String> mImageUrls = new ArrayList<>(); // TODO: fix and implement database connection.
 
+    /** Returns a new instance of the fragment. */
     public static SearchFragment newInstance() {
         return new SearchFragment();
     }
 
+    /** Method to inflate the view. */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -44,6 +46,7 @@ public class SearchFragment extends Fragment {
         return inflater.inflate(R.layout.search_fragment, container, false);
     }
 
+    /** Method that is run when activity is created. */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -61,6 +64,7 @@ public class SearchFragment extends Fragment {
         });
     }
 
+    /** Temporary hard-coded image information. */
     private void initImageBitmaps(){
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
@@ -94,6 +98,7 @@ public class SearchFragment extends Fragment {
         initRecyclerView();
     }
 
+    /** Initializes the RecyclerView to populate the UI. */
     private void initRecyclerView(){
         Log.d(TAG, "init RecyclerView: init recyclerview.");
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);

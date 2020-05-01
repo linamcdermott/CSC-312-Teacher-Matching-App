@@ -9,6 +9,7 @@ import com.example.teachertinder.ui.dashboard.DashboardFragment;
 /** Activity to show user dashboard. **/
 public class DashboardActivity extends AppCompatActivity {
 
+    /** Method that is run when the activity is created. */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
